@@ -5,7 +5,7 @@
             * 3. Link pagina movimientos / Link Home
             * 4. Link pagina Habilidades / Link Home
 
-    
+        
 */
 
 const pokemonUrl = 'https://pokeapi.co/api/v2/pokemon/'
@@ -17,7 +17,6 @@ const fetchPokemon = (url, pokemon) => {
     fetch(url + pokemon)
     .then(data => data.json())
     .then(pokemon => {
-        console.log("Fetching Pokemon!")
         localStorage.setItem("pokemonData", JSON.stringify(pokemon))
        pokemonPageOne()
     })
@@ -27,7 +26,6 @@ const fetchSpecies = (url, pokemon) => {
     fetch(url + pokemon)
     .then(data => data.json())
     .then(pokemon => {
-        console.log("Fetching Species!")
         localStorage.setItem("pokemonSpecies", JSON.stringify(pokemon))
         pokemonPageOne()
     })
@@ -40,27 +38,19 @@ const pokemonPageOne = () => {
     
     const pokemon = getPokemonData("pokemonData")
     const species = getPokemonSpecies("pokemonSpecies")
-    console.log(species, pokemon)
+    
 
     document.getElementById("pokemonSprite").src = pokemon.sprites.front_default
     document.getElementById("title").innerHTML = pokemon.name
     document.getElementById("description").innerHTML = species.flavor_text_entries[6].flavor_text.replace("" , " ")
    
-   //Stat 1
-    document.getElementById("stat1").innerHTML = pokemon.stats[0].stat.name
-    document.getElementById("stat1").innerHTML += ": "
-    document.getElementById("stat1").innerHTML += pokemon.stats[0].base_stat
+    //Stats
+    for (i = 0; i <= 3; i++){
+        document.getElementById(`stat${i+1}`).innerHTML = pokemon.stats[i].stat.name
+        document.getElementById(`stat${i+1}`).innerHTML += ": "
+        document.getElementById(`stat${i+1}`).innerHTML += pokemon.stats[i].base_stat
+    }
    
-   //Stat 2
-    document.getElementById("stat2").innerHTML = pokemon.stats[1].stat.name
-    document.getElementById("stat2").innerHTML += ": "
-    document.getElementById("stat2").innerHTML += pokemon.stats[1].base_stat
-    
-    //Stat 3
-    document.getElementById("stat3").innerHTML = pokemon.stats[2].stat.name
-    document.getElementById("stat3").innerHTML += ": "
-    document.getElementById("stat3").innerHTML += pokemon.stats[2].base_stat
-
 
 }
 
@@ -68,17 +58,14 @@ const pokemonPageOne = () => {
 const pokemonPageTwo = () => {
 
     const pokemon = getPokemonData("pokemonData")
-    const species = getPokemonSpecies("pokemonSpecies")
-    
-     //Move 1
-     document.getElementById("stat1").innerHTML = pokemon.moves[0].move.name
-
-    //Move 2
-     document.getElementById("stat2").innerHTML = pokemon.moves[1].move.name
-
      
-     //Move 3
-     document.getElementById("stat3").innerHTML = pokemon.moves[2].move.name
+    //Moves
+    for (i = 0; i <= 3; i++){
+        document.getElementById(`stat${i+1}`).innerHTML = pokemon.moves[i].move.name
+       
+    }
+     
+    
     
 
 }
@@ -86,17 +73,17 @@ const pokemonPageTwo = () => {
 const pokemonPageThree = () => {
 
     const pokemon = getPokemonData("pokemonData")
-    const species = getPokemonSpecies("pokemonSpecies")
-    
-     //Ability 1
-     document.getElementById("stat1").innerHTML = pokemon.abilities[0].ability.name
    
-    //Ability 2
-     document.getElementById("stat2").innerHTML = pokemon.abilities[1].ability.name
-   
+    //Abilities
+    for (i = 0; i <= 3; i++){
+        document.getElementById(`stat${i+1}`).innerHTML = pokemon.abilities[i].ability.name
+        if (pokemon.abilities[i].ability.name == undefined){
+            document.getElementById(`stat${i+1}`).innerHTML = ""
+        }
+    }
      
-     //Ability 3
-     document.getElementById("stat3").innerHTML = pokemon.abilities[2].ability.name
+   
+   
     
 
 
