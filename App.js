@@ -59,6 +59,8 @@ const pokemonPageTwo = () => {
 
     const pokemon = getPokemonData("pokemonData")
      
+
+     
     //Moves
     for (i = 0; i <= 3; i++){
         document.getElementById(`stat${i+1}`).innerHTML = pokemon.moves[i].move.name
@@ -77,9 +79,7 @@ const pokemonPageThree = () => {
     //Abilities
     for (i = 0; i <= 3; i++){
         document.getElementById(`stat${i+1}`).innerHTML = pokemon.abilities[i].ability.name
-        if (pokemon.abilities[i].ability.name == undefined){
-            document.getElementById(`stat${i+1}`).innerHTML = ""
-        }
+        
     }
      
    
