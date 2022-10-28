@@ -1,0 +1,97 @@
+.card {
+  margin-top: 25px;
+  margin-left: 823px;
+  border: 2px solid black;  
+  visibility: hidden;
+}
+
+.card-img-top {
+    
+}
+.card-title {
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 30px;
+}
+.search {
+   
+    padding: 12px 20px 12px 40px;
+    width: 15%;
+    background-color: white;
+    background-image:url(Images/searchlogo.png);
+    background-size: 50px;
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    padding-left: 55px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 823px; 
+  }
+
+
+  .card-link {
+    background: linear-gradient(to right,#196BCA ,#6433E0);
+    background-color: #196BCA;
+    color: #fff;
+    font-family: Trebuchet MS;
+    font-size: 18px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+    padding: 3px 10px;
+    border: 0px solid #000;
+    border-radius: 10px;
+    display: inline-block;
+    display: flex;
+    border: 1px solid black;
+}
+
+.card-link:hover {
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+
+.card-link:active {
+    position:relative;
+	top:1px;  
+}
+
+
+#stat1 {
+  font-weight: bold;
+  font-size: 30px;
+
+}
+#stat2{
+  font-weight: bold;
+
+
+}
+
+#stat3{
+  font-weight: bold;
+
+
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
